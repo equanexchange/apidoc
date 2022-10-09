@@ -424,7 +424,7 @@ curl -X POST "https://api.partner.com/equan/v1/transfer/result" \
 
   | 参数名     | 是否必填     |  说明  |  示例值  |
   | ---- | ---- | ---- | ---- |
-  | **token**     |  是    | 授权成功后生成的 access token，访问需要授权的接口时需携带 | xxxxx-xxxxx-xxxxx |
+  | **access_token**     |  是    | 授权成功后生成的 access token，访问需要授权的接口时需携带 | xxxxx-xxxxx-xxxxx |
   | **expiry**     |  是    | access token 的过期时间，秒级时间戳 | 1663862400 |
 
 #### 用户信息
