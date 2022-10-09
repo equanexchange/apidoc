@@ -491,6 +491,7 @@ curl -X GET 'https://www.equan.com/api/v1/external/user' \
   | **total**     |  number    | 是 | 记录的总数量 |
   | **records**     |   array   | 是 | 已同步藏品记录，以下为数组内对象字段|
   | **id**     |  number    | 是 | 记录id|
+  | **platform_id**     |  string    | 是 | 藏品在同步或销毁前，所在的一级平台id|
   | **collection_id**     |  string    | 是 | 藏品或藏品库存唯一标识，假如藏品有多个库存，是能定位到具体某个库存的id |
   | **sku_id**     |  string    | 是 | 藏品类型或藏品唯一标识，这个id并不需要区分到具体库存，只需能区分不同藏品或藏品类型即可 |
   | **name**     |   string   | 是 | 藏品名称 |
@@ -515,6 +516,7 @@ curl -X GET 'https://www.equan.com/api/v1/external/collection?limit=10&id=888&of
         "records": [
             {
                 "id": 1,
+                "platform_id": "88",
                 "collection_id": "xxx-xxx-xxx-123",
                 "sku_id": "xxx-xxx-xxx",
                 "name": "银河系韦伯望远镜首拍",
