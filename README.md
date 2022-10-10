@@ -12,6 +12,7 @@
     - [用户验证](#用户验证)
     - [藏品列表](#藏品列表)
     - [藏品详情](#藏品详情)
+    - [上下架询问](#上下架询问)  
     - [验证地址](#验证地址)
     - [藏品转赠](#藏品转赠)
     - [转赠结果](#转赠结果)
@@ -257,6 +258,50 @@ curl -X POST "https://api.partner.com/equan/v1/collection/detail" \
         "introduce": "我秦始皇打钱",
         "tech_support": "牛逼老哥",
         "hash": "0xff000000001"
+    }
+}
+```
+
+#### 上下架询问
+用户在 equan **上架或下架**一级平台的藏品时，equan 将调用此接口进行询问（需配置，默认不询问），当一级平台返回失败时，上下架将失败。无此需求的平台该接口可不对接。
+
+- 接口地址: **/collection/ask**
+
+- 请求方法: **POST**
+
+- 请求参数:
+
+  | 参数名    | 说明         | 示例值             |
+  | --------- | ------------ | ------------------ |
+  | **user_id** | 用户id   | xxxx-xxxx-xxxx        |
+  | **collection_id**  | 藏品id     | aaaa-bbbb-cccc             |
+  | **type**  | 操作类型，ON_SHELF 上架，OFF_SHELF 下架 | ON_SHELF / OFF_SHELF |
+
+- 响应参数:
+
+  | 参数名     | 类型     |  是否必填  |  说明  |
+  | ---- | ---- | ---- | ---- |
+  | **valid**     |   boolean   | 是 | 当 status 传 ON_SHELF 时，若允许上架请返回 true，否则返回 false 将上架失败；当 status 传 OFF_SHELF 时，若允许下架请返回 true，否则返回 false 将下架失败 |
+
+- cURL示例:
+```sh
+curl -X GET "http://api.example.com/collection/ask" \
+    -H "X-EQUAN-APIKEY: 2xeBreQOWzW7aGh26a1T1cewlwXKg0gz" \
+    -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+    --data-raw "user_id"="xxxx-xxxx-xxxx" \
+    --data-raw "collection_id"="aaaa-bbbb-cccc" \
+    --data-raw "type"="ON_SHELF" \
+    --data-raw "timestamp"="1661356800000" \
+    --data-raw "signature"="E2D99AC73D79C173CD6D1DC645855058D138DB393A19E09721007372A0906833"
+```
+
+- 响应示例：
+```json
+{
+    "code": 0,
+    "message": "",
+    "data": {
+        "valid": true
     }
 }
 ```
