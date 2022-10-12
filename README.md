@@ -144,7 +144,7 @@ curl -X POST "https://api.partner.com/equan/v1/user" \
   | 参数名    | 说明         | 示例值             |
   | --------- | ------------ | ------------------ |
   | **user_id** | 用户在一级平台的id   | xxxx-xxxx-xxxx        |
-  | **type** | 藏品类型，传DESTROY时，请返回可销毁的藏品，默认不传   | DESTROY       |
+  | **type** | 藏品类型，传DESTROY时，请返回**一级平台内配置的可销毁的藏品**，默认不传   | DESTROY       |
   | **offset**  | 记录偏移量，用于分页     | 0             |
   | **limit** | 需要返回的记录数量，用于分页 | 10 |
 
