@@ -162,6 +162,7 @@ curl -X POST "https://api.partner.com/equan/v1/user" \
   | **price**     |   string   | 是 | 藏品的发行价格 |
   | **created_time**     |   number   | 否 | 藏品发行时间，秒级时间戳 |
   | **status**     |   string   | 是 | 藏品状态，可以转赠返回OK，无法转赠返回NOT_OK |
+  | **use_type**     |   string   | 否 | 藏品的业务类型，CAT 猫，CAT_FOOD 猫粮，该字段仅在 type 传 DESTROY 时需要返回 |
   
 - cURL示例:
 ```sh
@@ -544,6 +545,7 @@ curl -X GET 'https://www.equan.com/api/v1/external/user' \
   | **image_type**     |   string   | 是 | 藏品图片类型，如果是链接返回URL，如果是base64编码返回BASE64 |
   | **price**     |   string   | 是 | 藏品的发行价格 |
   | **created_time**     |   number   | 是 | 藏品发行时间，秒级时间戳 |
+  | **use_type**     |   string   | 是 | 藏品的业务类型，CAT 猫，CAT_FOOD 猫粮 |
 
 - cURL示例: 
 ```sh
@@ -568,7 +570,8 @@ curl -X GET 'https://www.equan.com/api/v1/external/collection?limit=10&id=888&of
                 "image": "https://image.example.com/xxxxxx.jpeg",
                 "image_type": "URL",
                 "price": "999",
-                "created_time": 1661356800
+                "created_time": 1661356800,
+                "use_type": "CAT"
             }
         ]
     }
