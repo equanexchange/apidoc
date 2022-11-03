@@ -308,7 +308,7 @@ curl -X GET "http://api.example.com/collection/ask" \
 ```
 
 #### 验证地址
-验证买家的地址是否存在于一级平台内
+验证买家的地址是否存在于一级平台内，地址可以是**用户手机号或区块链地址**，建议手机号
 
 - 接口地址: **/address/verify**
 
@@ -319,7 +319,7 @@ curl -X GET "http://api.example.com/collection/ask" \
   | 参数名    | 说明         | 示例值             |
   | --------- | ------------ | ------------------ |
   | **collection_id**  | 藏品id，可用于判断藏品是否可转赠给目标地址     | aaaa-bbbb-cccc             |
-  | **address** | 目标地址，判断一级平台内是否存在该地址，或是否可接收藏品的转赠   | 0xff00000001        |
+  | **address** | 目标地址（**手机号或区块链地址，建议手机号，需在对接时说明选择哪种**），判断一级平台内是否存在该地址，或是否可接收藏品的转赠   | 0xff00000001 / 18888888888  |
 
 - 响应参数:
 
@@ -352,7 +352,7 @@ curl -X GET "http://api.example.com/address/verify" \
 ```
 
 #### 藏品转赠
-用户将一级平台内的藏品转赠给指定的地址
+用户将一级平台内的藏品转赠给指定的地址，地址可以是**用户手机号或区块链地址**，建议手机号
 
 - 接口地址: **/transfer**
 
@@ -365,7 +365,7 @@ curl -X GET "http://api.example.com/address/verify" \
   | **user_id** | 用户id   | xxxx-xxxx-xxxx        |
   | **collection_id**  | 藏品id     | aaaa-bbbb-cccc             |
   | **type** | 操作类型，DESTROY表示销毁藏品，当销毁时不会传address，默认不传   | DESTROY       |
-  | **address** | 转赠目标地址   | 0xff00000001        |
+  | **address** | 转赠目标地址（**手机号或区块链地址，建议手机号，需在对接时说明选择哪种**）   | 0xff00000001 / 18888888888       |
 
 - 响应参数:
 
